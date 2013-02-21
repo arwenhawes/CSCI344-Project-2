@@ -1,0 +1,21 @@
+/* 
+    Document   : stylefor1
+    Created on : Feb 21, 2013, 10:06:10 AM
+    Author     : Arwen Hawes <ahawes@unca.edu>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@font-face {
+	font-family: 'gyparody';
+	src: url('fonts/gyparody hv.otf');
+	src: local('gyparody'), local('gyparody'), url('fonts/gyparody hv.ttf') format('truetype');
+}
+body { 
+    display: block;
+    color: blueviolet;
+    background: #ccffff;
+    font-family:gyparody, verdana;
+}
+
+
+
