@@ -1,38 +1,71 @@
 
 
-var firstChoice = null, //will store first choice
-        secondChoice = null, //will store second choice 
-        contestantChoice = null,
-        morePopular = null, //will store which is more popular
-        firstCount = 0, //will count the first choice count from twitter
-        secondCount = 0; //will store the second choice count from twitter
-winner = null;
-function getRand() {
-    var choicesForContest = new Array[12];
-    choicesForContest[0] = "swimming";
-    choicesForContest[1] = "bunnies";
-    choicesForContest[2] = "pitch perfect";
-    choicesForContest[3] = "rainbows";
-    choicesForContest[4] = "Katniss";
-    choicesForContest[5] = "London";
-    choicesForContest[6] = "Twilight";
-    choicesForContest[7] = "hollister";
-    choicesForContest[8] = "chocolate";
-    choicesForContest[9] = "soccer";
-    choicesForContest[10] = "Justin Beiber";
-    choicesForContest[11] = "Germany";
-    
-    var rand = Math.floor(Math.random() * choicesForContest.length);
-    return choicesForContest[rand];
-}
+(function () {
+    "use strict";
+    var $ = window.$,
 
+    main = function () {
+        console.log("main called!");
+        console.log($("#ui_button_1").size())
 
+        var firstChoice = null,
+                secondChoice = null, //will store second choice 
+                contestantChoice = null,
+                morePopular = null, //will store which is more popular
+                firstCount = 0, //will count the first choice count from twitter
+                secondCount = 0, //will store the second choice count from twitter
+                winner = null; //set the contestants choice to win using jquery
+                var twitter = new ctwitter.CTwitter();
 
-var main = function() {
-    //set the contestants choice to win using jquery
-    console.log(getRand);
+        console.log("about to attach handler: " + $("#ui_button_1").size());
+        $("#ui_button_1").click(function() {
+            firstChoice = $("#user_input_1").val();
+            console.log("firstChoice updated to: " + firstChoice);
+            twitter.stream("statuses/filter", {lang: "en", track: [firstChoice]}, function(stream)
+        {
+            stream.on("data", function(tweet)
+            {
+                firstCount = firstCount + 1;
+                console.log(firstCount);
+            });
+        });
+        console.log("handler attached!");
 
-};
+        //track first choice
+        
+        
+            
+        });
+        console.log("first choice: " + firstChoice + " count: " + firstCount);
+        //track second choice
+        $("#user_input_2").val("enter second choice");
+        $("#ui_button_2").click(function() {
+            secondChoice = $("#user_input_2").val();
+        });
 
+        var twitter2 = new ctwitter.CTwitter();
+        twitter2.stream("statuses/filter", {lang: "en", track: [secondChoice]}, function(stream)
+        {
+            stream.on("data", function(tweet)
+            {
+                secondCount = secondCount + 1;
+            });
+        });
+        console.log(secondChoice + secondCount);
+        //compare first and second tweet
+        if (firstCount > secondCount) {
+            winner = firstChoice;
+        }
+        else {
+            winner = secondChoice;
+        }
+        //compare contestantChoice & morePopular
+        if (winner === morePopular) {
+            //present winning choice
 
-$(document).ready(main); //abstracts main
+        }
+
+    };
+    console.log("about to attach main to jquery");
+    $(document).ready(main); //abstracts main
+}());
