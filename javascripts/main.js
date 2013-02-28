@@ -17,23 +17,27 @@
                 $(".choices h1").hide();
                 $("#ui_button").hide();
                 $("#user_input").hide();
-                $(".choices").append("<h1> Choice:" + userChoice + "</h1>");
+                $("#input").append("<h1> Choice:" + userChoice + "</h1>");
                 $("h1").css({"border-style": "solid", "border-width": "5px", "border-color": "white"});
                 console.log("firstChoice updated to: " + userChoice);
                 twitter.stream("statuses/filter", {lang: "en", track: [userChoice]}, function (stream) {
                     stream.on("data", function (tweet) {
                         count = count + 1;
                         console.log(count);
-                    });
-                });
-            //console.log("handler attached!");
-                $(".choices").append("<h2> Count:" + count + "</h2>");
-                console.log("first choice: " + userChoice + " count: " + count);
-                if (count === 0) {
-                    $('.winner').avgrund({
-                        template: 'Winner!'
+                        $("#count").html("<h2> Count:" + count + "</h2>");
+                        
+                            //console.log("first choice: " + userChoice + " count: " + count);
+                            if (count === 0) {
+                                $('.winner').avgrund({
+                                    template: 'Winner!'
                     });
                 }
+                
+                    });
+                    
+                });
+            //console.log("handler attached!");
+                
             });
         //present winning choice
         };

@@ -32,6 +32,8 @@ body {
 }
 .choices{
     padding-top: 2em;
+    width: 100%;
+    
 }
 
 .firstchoice{
