@@ -13,12 +13,9 @@ Build an application that tracks some data about a user-specified search term on
 
 (6) Your code should pass HTML Lint and JSLint with all options turned on.
 
-I am going to build a site that acts like a game. The contestant will enter in two terms that are tracked in twitter
-and choose which one they think will be more popular. If they choose correctly, a little medal or something will pop up,
-otherwise a sad face or something will pop up.
-I want to create an array with 100 different search terms where 3 will be in a drop down to choose from (randomly selected).
-Another field will also have 3. A third input will be a button where the user picks which will be more popular.
+I am building a web app that uses twitter to play a game similar to Google whack. The user enters are term and the app uses Ctwitter to track how often
+that term is tweeted. If the user gets a single hit, I will use the avgrund plug for a pop up box to state the user is a winner.
+I am also using fittext plug in to stretch the heading further across the web page.
 
-The app then uses CTwitter to track the 2 search terms in the last week and count them (seperately, of course).
-Once that is done, the counts are reported back and either a happy prize or a sad thing will come up.
- 
+I finally feel like I have a handle on jquery. This was  a good (although sometimes painful) project to learn it on. 
+
