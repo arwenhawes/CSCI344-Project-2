@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    /*global console: false, ctwitter: false, document: false, name: false, navigator: false, window: false */
+    /*global console: false, ctwitter: false, document: false, window: false */
     var $ = window.$,
         main = function () {
             //console.log("main called!"); Used to debug .click issues
@@ -21,23 +21,14 @@
                 $("h1").css({"border-style": "solid", "border-width": "5px", "border-color": "white"});
                 console.log("firstChoice updated to: " + userChoice);
                 twitter.stream("statuses/filter", {lang: "en", track: [userChoice]}, function (stream) {
-                    stream.on("data", function (tweet) {
+                    stream.on("data", function () {
                         count = count + 1;
                         console.log(count);
                         $("#count").html("<h2> Count:" + count + "</h2>");
-                        
-                            //console.log("first choice: " + userChoice + " count: " + count);
-                            if (count === 0) {
-                                $('.winner').avgrund({
-                                    template: 'Winner!'
+                         //console.log("first choice: " + userChoice + " count: " + count);
                     });
-                }
-                
-                    });
-                    
                 });
-            //console.log("handler attached!");
-                
+            //console.log("handler attached!");   
             });
         //present winning choice
         };
