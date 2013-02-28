@@ -5,32 +5,34 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TwitPop!</title>
+        <title>TwitterWhack!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="style.css" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="avgrund.css" />
     </head>
     <body>
-        <div class ="top"><H1>TWIT POP! </h1></div>
-        <div class ="intro"><p>Welcome to TwitPop! Where lucky contestants get to pick two twitter terms and decide which is more popular!<p>
-            <p> First enter 2 choices below. These will be tracked on twitter. Next choose which search term you think will be more popular</p>
-            <p> Choose correctly and you will a prize!</p></div>
+        <div class ="top"><h1 id="fittext1">TwitterWhack! </h1></div>
+        <div class ="intro"><p>Welcome to TwitterWhack! Where lucky contestants get to pick a two word term and decide and try to get Twitter to return one hit!<p>
+            <p> Enter your choice below. This will be tracked on twitter. If it only returns one hit, you get a prize!</p>
+        </div>
         <div class="choices">
             <div class ="firstchoice">
-                <h1>First Choice</h1>
-                <input id="user_input_1">
-                <button id="ui_button_1">Submit Choice</button>
-                </div>
-            <div class ="secondchoice">
-                <h1>Second choice</h1>
-                <input id="user_input_2">
-                <button id="ui_button_2">Submit Choice</button>
+                <h1>TwitWhack This!</h1>
+                <input id="user_input">
+                <button id="ui_button">Submit Choice</button>
             </div>
+
         </div>
-        
+        <div class="winner">
+
+        </div>
+
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/ctwitter.js"></script>
         <script src="js/jscript.js"></script>
-        
+        <script src="js/jquery.fittext.js"></script>
+        <script src="js/jquery.avgrund.js"></script>
+
     </body>
 </html>
