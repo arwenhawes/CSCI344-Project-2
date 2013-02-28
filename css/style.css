@@ -16,11 +16,13 @@ body {
     background: #833267; /*84A03D*/
     font-family:gyparody,'Roboto', sans-serif;
     text-align: center;
+    border: 2em;
 }
 .top{
     color: #84A03D;
     padding: auto;
     font-size: 300%;
+    width: 100%;
 }
 
 .intro{
@@ -33,14 +35,9 @@ body {
 }
 
 .firstchoice{
+    width: 50%;
     float: left;
-    padding-left: 5em;
-    width: 40%;
 }
 
-.secondchoice{
-    float: right;
-    padding-right: 5em;
-    width: 40%;
-}
+
 
